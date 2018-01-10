@@ -1,3 +1,5 @@
 #!/bin/bash
 
-make lint
+go get github.com/alecthomas/gometalinter
+gometalinter --install
+gometalinter ./...
