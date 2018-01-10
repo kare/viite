@@ -7,6 +7,7 @@ jobs:
           install:
               - npm install -g codeclimate-test-reporter
           script:
+              - make lint
               - go test -coverprofile=coverage.txt -covermode=atomic kkn.fi/viite
           after_success:
               - codeclimate-test-reporter < coverage.txt
