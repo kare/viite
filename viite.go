@@ -20,7 +20,7 @@ var ErrInvalidInput = errors.New("viite: invalid input")
 func Format(v string) string {
 	// g is the length of the format group
 	const g = 5
-	if len(v)  <  g {
+	if len(v) < g {
 		return v
 	}
 	s := ""
