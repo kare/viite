@@ -1,0 +1,5 @@
+language: go
+go_import_path: kkn.fi/viite
+script: make test
+go:
+    - 1.9
