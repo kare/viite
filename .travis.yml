@@ -1,18 +1,15 @@
 language: go
+go: 1.9.x
+go_import_path: kkn.fi/viite
 jobs:
     include:
         - stage: lint
-          go_import_path: kkn.fi/viite
           install:
               - npm install -g codeclimate-test-reporter
-          os: linux
-          go: 1.9.x
           script:
               - go test -coverprofile=coverage.txt -covermode=atomic kkn.fi/viite
           after_success:
               - codeclimate-test-reporter < coverage.txt
         - stage: test
-          go_import_path: kkn.fi/viite
-          go: 1.9.x
           install: skip
           script: make test
