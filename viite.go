@@ -79,7 +79,7 @@ func Validate(v string) bool {
 }
 
 // checksum calculates the checksum for a Finnish viitenumero base number.
-// Function assumes digit only input input.
+// Function assumes digit only input.
 func checksum(b string) int {
 	weights := []int{7, 3, 1}
 	var checksum int
