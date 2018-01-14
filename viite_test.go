@@ -1,10 +1,16 @@
 package viite_test
 
 import (
+	"fmt"
 	"testing"
 
 	"kkn.fi/viite"
 )
+
+func ExampleFormat() {
+	fmt.Println(viite.Format("12303216"))
+	// Output: 123 03216
+}
 
 func TestFormat(t *testing.T) {
 	var testData = []struct {
@@ -24,6 +30,11 @@ func TestFormat(t *testing.T) {
 			t.Fatalf("expected '%v', got '%v'", tc.expected, v)
 		}
 	}
+}
+
+func ExampleGenerate() {
+	fmt.Println(viite.Generate("123123"))
+	// Output: 1231234 <nil>
 }
 
 func TestGenerate(t *testing.T) {
@@ -67,6 +78,11 @@ func TestGenerateErrInvalidInput(t *testing.T) {
 			t.Fatalf("expected viite.ErrInvalidInput, got %v with '%v'", err, tc.input)
 		}
 	}
+}
+
+func ExampleValidate() {
+	fmt.Println(viite.Validate("12303216"))
+	// Output: true
 }
 
 func TestValidateFails(t *testing.T) {
