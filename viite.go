@@ -1,4 +1,4 @@
-package viite // import "kkn.fi/viite"
+package viite
 
 import (
 	"errors"
