@@ -1,6 +1,5 @@
-dist: trusty
 language: go
-go: 1.9.x
+go: 1.13
 go_import_path: kkn.fi/viite
 jobs:
     include:
