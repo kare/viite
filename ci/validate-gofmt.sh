@@ -5,7 +5,7 @@ pkg=kkn.fi/viite
 importPath=kkn.fi/viite
 relativePkg="${pkg/$importPath/.}"
 
-output=`gofmt -s -l $relativePkg`
+output=$(gofmt -s -l $relativePkg)
 if [ "$output" != "" ]; then
 	echo "validate-gofmt.sh: error $pkg" 1>&2
 	exit 1

@@ -8,7 +8,7 @@ test:
 
 .PHONY: lint
 lint: $(GOMETALINTER)
-	gometalinter --vendor ./...
+	gometalinter ./...
 
 $(GOMETALINTER):
 	go get -u github.com/alecthomas/gometalinter
