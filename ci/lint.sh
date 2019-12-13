@@ -1,5 +1,5 @@
 #!/bin/bash
 
-go get github.com/alecthomas/gometalinter
+GO111MODULE=off go get github.com/alecthomas/gometalinter
 gometalinter --install
 gometalinter ./...
