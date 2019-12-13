@@ -1,4 +1,4 @@
-# viite
+# kkn.fi/viite
 
 [![Build Status](https://travis-ci.org/kare/viite.svg?branch=master)](https://travis-ci.org/kare/viite)
 [![GoDoc](https://godoc.org/kkn.fi/viite?status.svg)](https://godoc.org/kkn.fi/viite)
