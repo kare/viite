@@ -1,7 +1,7 @@
 # kkn.fi/viite
 
 [![Build Status](https://travis-ci.org/kare/viite.svg?branch=master)](https://travis-ci.org/kare/viite)
-[![GoDoc](https://godoc.org/kkn.fi/viite?status.svg)](https://godoc.org/kkn.fi/viite)
+[GoDoc](https://pkg.go.dev/kkn.fi/viite)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f338aefd617154859a17/test_coverage)](https://codeclimate.com/github/kare/viite/test_coverage)
 [![Go Report Card](https://goreportcard.com/badge/kkn.fi/viite)](https://goreportcard.com/report/kkn.fi/viite)
 
@@ -9,7 +9,7 @@
     go get -u kkn.fi/viite
 
 ## Examples
-See [godoc](https://godoc.org/kkn.fi/viite) for examples.
+See [GoDoc](https://pkg.go.dev/kkn.fi/viite) for examples.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first
