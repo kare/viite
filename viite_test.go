@@ -24,11 +24,15 @@ func TestFormat(t *testing.T) {
 		{"1234", "1234"},
 		{"3629466132657495", "3 62946 61326 57495"},
 	}
-	for _, tc := range testData {
-		v := viite.Format(tc.input)
-		if v != tc.expected {
-			t.Errorf("expected '%v', got '%v'", tc.expected, v)
-		}
+	for i, tc := range testData {
+		tc := tc
+		t.Run(fmt.Sprintf("#%d", i), func(t *testing.T) {
+			t.Parallel()
+			v := viite.Format(tc.input)
+			if v != tc.expected {
+				t.Errorf("expected '%v', got '%v'", tc.expected, v)
+			}
+		})
 	}
 }
 
@@ -43,7 +47,6 @@ func TestGenerate(t *testing.T) {
 		expected string
 	}{
 		{"1230321", "12303216"},
-
 		{"1231", "12315"},
 		{"12481", "124818"},
 		{"12345678", "123456780"},
@@ -52,14 +55,18 @@ func TestGenerate(t *testing.T) {
 		{"362946613265749", "3629466132657495"},
 		{"1234567890123456781", "12345678901234567810"},
 	}
-	for _, tc := range testData {
-		v, err := viite.Generate(tc.input)
-		if err != nil {
-			t.Errorf("expected nil error, got '%v'", err)
-		}
-		if v != tc.expected {
-			t.Errorf("expected '%v', got '%v'", tc.expected, v)
-		}
+	for i, tc := range testData {
+		tc := tc
+		t.Run(fmt.Sprintf("#%d", i), func(t *testing.T) {
+			t.Parallel()
+			v, err := viite.Generate(tc.input)
+			if err != nil {
+				t.Errorf("expected nil error, got '%v'", err)
+			}
+			if v != tc.expected {
+				t.Errorf("expected '%v', got '%v'", tc.expected, v)
+			}
+		})
 	}
 }
 
@@ -72,11 +79,15 @@ func TestGenerateErrInvalidInput(t *testing.T) {
 		{"12"},
 		{"123456789012345678901234"},
 	}
-	for _, tc := range testData {
-		_, err := viite.Generate(tc.input)
-		if err != viite.ErrInvalidInput {
-			t.Errorf("expected viite.ErrInvalidInput, got %v with '%v'", err, tc.input)
-		}
+	for i, tc := range testData {
+		tc := tc
+		t.Run(fmt.Sprintf("#%d", i), func(t *testing.T) {
+			t.Parallel()
+			_, err := viite.Generate(tc.input)
+			if err != viite.ErrInvalidInput {
+				t.Errorf("expected viite.ErrInvalidInput, got %v with '%v'", err, tc.input)
+			}
+		})
 	}
 }
 
@@ -93,10 +104,14 @@ func TestValidateFails(t *testing.T) {
 		{"123456789012345678901"},
 		{"123x"},
 	}
-	for _, tc := range testData {
-		if invalid := viite.Validate(tc.input); invalid {
-			t.Errorf("expected validation to fail with '%v' ", tc.input)
-		}
+	for i, tc := range testData {
+		tc := tc
+		t.Run(fmt.Sprintf("#%d", i), func(t *testing.T) {
+			t.Parallel()
+			if invalid := viite.Validate(tc.input); invalid {
+				t.Errorf("expected validation to fail with '%v' ", tc.input)
+			}
+		})
 	}
 }
 func TestValidateSucceeds(t *testing.T) {
@@ -112,9 +127,13 @@ func TestValidateSucceeds(t *testing.T) {
 		{"3629466132657495"},
 		{"12345678901234567810"},
 	}
-	for _, tc := range testData {
-		if valid := viite.Validate(tc.input); !valid {
-			t.Errorf("expected validation to succeed with '%v' ", tc.input)
-		}
+	for i, tc := range testData {
+		tc := tc
+		t.Run(fmt.Sprintf("#%d", i), func(t *testing.T) {
+			t.Parallel()
+			if valid := viite.Validate(tc.input); !valid {
+				t.Errorf("expected validation to succeed with '%v' ", tc.input)
+			}
+		})
 	}
 }
