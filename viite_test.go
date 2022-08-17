@@ -27,7 +27,7 @@ func TestFormat(t *testing.T) {
 	for _, tc := range testData {
 		v := viite.Format(tc.input)
 		if v != tc.expected {
-			t.Fatalf("expected '%v', got '%v'", tc.expected, v)
+			t.Errorf("expected '%v', got '%v'", tc.expected, v)
 		}
 	}
 }
@@ -55,10 +55,10 @@ func TestGenerate(t *testing.T) {
 	for _, tc := range testData {
 		v, err := viite.Generate(tc.input)
 		if err != nil {
-			t.Fatalf("expected nil error, got '%v'", err)
+			t.Errorf("expected nil error, got '%v'", err)
 		}
 		if v != tc.expected {
-			t.Fatalf("expected '%v', got '%v'", tc.expected, v)
+			t.Errorf("expected '%v', got '%v'", tc.expected, v)
 		}
 	}
 }
@@ -75,7 +75,7 @@ func TestGenerateErrInvalidInput(t *testing.T) {
 	for _, tc := range testData {
 		_, err := viite.Generate(tc.input)
 		if err != viite.ErrInvalidInput {
-			t.Fatalf("expected viite.ErrInvalidInput, got %v with '%v'", err, tc.input)
+			t.Errorf("expected viite.ErrInvalidInput, got %v with '%v'", err, tc.input)
 		}
 	}
 }
@@ -95,7 +95,7 @@ func TestValidateFails(t *testing.T) {
 	}
 	for _, tc := range testData {
 		if invalid := viite.Validate(tc.input); invalid {
-			t.Fatalf("expected validation to fail with '%v' ", tc.input)
+			t.Errorf("expected validation to fail with '%v' ", tc.input)
 		}
 	}
 }
@@ -114,7 +114,7 @@ func TestValidateSucceeds(t *testing.T) {
 	}
 	for _, tc := range testData {
 		if valid := viite.Validate(tc.input); !valid {
-			t.Fatalf("expected validation to succeed with '%v' ", tc.input)
+			t.Errorf("expected validation to succeed with '%v' ", tc.input)
 		}
 	}
 }
