@@ -1,0 +1,33 @@
+---
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      timezone: Europe/Helsinki
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: ci
+      include: scope
+    reviewers:
+      - kare
+    assignees:
+      - kare
+    labels:
+      - ci
+  - package-ecosystem: gomod
+    directory: /
+    schedule:
+      interval: weekly
+      timezone: Europe/Helsinki
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: build
+      include: scope
+    reviewers:
+      - kare
+    assignees:
+      - kare
+    labels:
+      - build
