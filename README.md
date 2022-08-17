@@ -3,6 +3,11 @@
 [![Go Reference](https://pkg.go.dev/badge/kkn.fi/viite.svg)](https://pkg.go.dev/kkn.fi/viite)
 [![Go Report Card](https://goreportcard.com/badge/kkn.fi/viite)](https://goreportcard.com/report/kkn.fi/viite)
 
+## Features
+- Generate reference number with checksum based on given input
+- Format reference number in 5 number groups separated by space
+- Validate reference number
+
 ## Installation
 ```
 go get -u kkn.fi/viite
