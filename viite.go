@@ -16,7 +16,7 @@ const (
 // ErrInvalidInput represents an error where user input is invalid.
 var ErrInvalidInput = errors.New("viite: invalid input")
 
-// Format returns given v formatted.
+// Format returns given v formatted in groups of five separated by space.
 func Format(v string) string {
 	// g is the length of the format group
 	const g = 5
