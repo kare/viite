@@ -2,6 +2,7 @@ package viite_test
 
 import (
 	"fmt"
+	"math/rand"
 	"testing"
 
 	"kkn.fi/viite"
@@ -135,5 +136,23 @@ func TestValidateSucceeds(t *testing.T) {
 				t.Errorf("expected validation to succeed with '%v' ", tc.input)
 			}
 		})
+	}
+}
+
+func ExampleRandom() {
+	rand.Seed(7495279621507012057)
+	v := viite.Random()
+	fmt.Println(v)
+	// Output: 4427874199340402
+}
+
+func TestRandom(t *testing.T) {
+	t.Parallel()
+	result := viite.Random()
+	if result == "" {
+		t.Error("expecting non empty result from viite.Random()")
+	}
+	if len(result) < 16 {
+		t.Errorf("expecting reference number to be longer than 15 characters: '%v', len: %d", result, len(result))
 	}
 }
