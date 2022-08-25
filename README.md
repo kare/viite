@@ -5,6 +5,7 @@
 
 ## Features
 - Generate reference number with checksum based on given input
+- Generate random checksummed reference numbers longer than 15 number characters
 - Format reference number in 5 number groups separated by space
 - Validate reference number
 

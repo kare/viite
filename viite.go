@@ -3,6 +3,9 @@ package viite
 import (
 	"errors"
 	"fmt"
+	"math/rand"
+	"strconv"
+	"strings"
 	"unicode"
 )
 
@@ -94,6 +97,25 @@ func reverse(v []rune) []rune {
 	n := len(v)
 	for i := 0; i < n/2; i++ {
 		v[i], v[n-1-i] = v[n-1-i], v[i]
+	}
+	return v
+}
+
+// randomGenerate is used to call Generate() from Random(). Used in mock test.
+var randomGenerate = Generate
+
+// Random generates a random checksummed reference number longer than 15 numbers.
+func Random() string {
+	const length = 15
+	var b strings.Builder
+	for i := 0; i < length; i++ {
+		r := rand.Intn(10)
+		s := strconv.Itoa(r)
+		b.WriteString(s)
+	}
+	v, err := randomGenerate(b.String())
+	if err != nil && err != ErrInvalidInput {
+		panic(fmt.Sprintf("viite: unknown error: %v", err))
 	}
 	return v
 }
