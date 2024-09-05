@@ -23,9 +23,8 @@ build:
     - "release*.bash"
 refactor:
 - changed-files:
-  - any-glob-to-any-file:
-    - "**/*.go"
   - all-globs-to-all-files:
+    - "**/*.go"
     - "!**/*_test.go"
 feature:
   - head-branch: ['^feature']
