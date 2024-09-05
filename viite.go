@@ -12,6 +12,7 @@ import (
 const (
 	// minLen is the minimum length of valid viitenumero.
 	minLen = 4
+
 	// maxLen is the maximum length of valid viitenumero.
 	maxLen = 20
 )
