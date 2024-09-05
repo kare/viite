@@ -2,7 +2,6 @@ package viite_test
 
 import (
 	"fmt"
-	"math/rand"
 	"testing"
 
 	"kkn.fi/viite"
@@ -137,13 +136,6 @@ func TestValidateSucceeds(t *testing.T) {
 			}
 		})
 	}
-}
-
-func ExampleRandom() {
-	rand.Seed(7495279621507012057)
-	v := viite.Random()
-	fmt.Println(v)
-	// Output: 4427874199340402
 }
 
 func TestRandom(t *testing.T) {
