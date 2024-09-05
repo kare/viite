@@ -25,5 +25,7 @@ refactor:
 - changed-files:
   - any-glob-to-any-file:
     - "**/*.go"
+  - all-globs-to-all-files:
+    - "!**/*_test.go"
 feature:
   - head-branch: ['^feature']
